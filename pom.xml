@@ -21,6 +21,9 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
+		<frontend-maven-plugin.nodeVersion>v0.10.32</frontend-maven-plugin.nodeVersion>
+		<frontend-maven-plugin.npmVersion>2.1.8</frontend-maven-plugin.npmVersion>
+		<frontend-maven-plugin.version>0.0.23</frontend-maven-plugin.version>
 	</properties>
 
 	<dependencies>
@@ -36,11 +39,49 @@
 		</dependency>
 	</dependencies>
 	
+
 	<build>
+		<finalName>angular-springboot</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>com.github.eirslett</groupId>
+				<artifactId>frontend-maven-plugin</artifactId>
+				<version>${frontend-maven-plugin.version}</version>
+				<configuration>
+					<workingDirectory>src/main/resources/static</workingDirectory>
+				</configuration>
+				<executions>
+					<execution>
+						<id>install-node-npm</id>
+						<goals>
+							<goal>install-node-and-npm</goal>
+						</goals>
+						<configuration>
+							<nodeVersion>${frontend-maven-plugin.nodeVersion}</nodeVersion>
+							<npmVersion>${frontend-maven-plugin.npmVersion}</npmVersion>
+						</configuration>
+					</execution>
+					<execution>
+						<id>npm-install-modules</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>tsc</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+						<configuration>
+							<arguments>run tsc</arguments>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
