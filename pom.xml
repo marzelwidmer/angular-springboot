@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>ch.keepcalm.web</groupId>
-	<artifactId>angular-springboot</artifactId>
+	<artifactId>angular-ts</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>angular-springboot</name>
-	<description>Demo project for Spring Boot</description>
+	<name>angular-ts</name>
+	<description>Demo project for Spring Boot and angular TypeScript</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -41,7 +41,7 @@
 	
 
 	<build>
-		<finalName>angular-springboot</finalName>
+		<finalName>angular-ts</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
