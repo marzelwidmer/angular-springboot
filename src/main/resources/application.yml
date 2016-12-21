@@ -1,3 +1,9 @@
+#Spring
+spring:
+  output:
+    ansi:
+      enabled: always
+
 # Infos Build
 info:
   build:
@@ -6,6 +12,14 @@ info:
     description: @project.description@
     version: @project.version@
 
+# Management
+management:
+  address: ${server.address}
+  port: ${server.port}
+  context-path: /manage
+  info:
+     git:
+       mode: full
 
 # Server
 server:
@@ -16,5 +30,6 @@ server:
     enabled: true
     mime-types: application/json,application/xml,text/html,text/xml,text/plain
 
-
-
+# Logging
+logging:
+  path: log
