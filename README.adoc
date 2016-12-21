@@ -1,0 +1,30 @@
+angular-springboot
+==================
+
+:toc:
+:toc-placement: preamble
+:toclevels: 1
+:project-artifact-name: angular-springboot
+
+// Need some preamble to get TOC:
+{empty}
+image:https://circleci.com/gh/marzelwidmer/angular-springboot.svg?style=shield&circle-token=:circle-token["CircleCI", link="https://circleci.com/gh/marzelwidmer/angular-springboot"]
+image:https://api.codacy.com/project/badge/Grade/34093789c75a4b72891743de8715cc65["Codacy code quality", link="https://www.codacy.com/app/marzelwidmer/angular-springboot?utm_source=github.com&utm_medium=referral&utm_content=marzelwidmer/angular-springboot&utm_campaign=Badge_Grade"]
+image:https://api.codacy.com/project/badge/Coverage/34093789c75a4b72891743de8715cc65["Codacy code quality", link="https://www.codacy.com/app/marzelwidmer/angular-springboot?utm_source=github.com&utm_medium=referral&utm_content=marzelwidmer/angular-springboot&utm_campaign=Badge_Coverage"]
+
+
+
+[installation]
+== Installation
+
+:spring-boot-ref-guide: http://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/
+:spring-boot-ref-guide-executable-jar: http://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#getting-started-first-application-executable-jar
+
+
+=== Build Application:
+ $ mvn package
+
+Copy the file {project-artifact-name}.jar anywhere on the server.
+The JAR already contains the configuration for all available environments.
+For further information please visit the  {spring-boot-ref-guide}[Spring Boot Reference Guide]
+
