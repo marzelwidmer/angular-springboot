@@ -11,20 +11,21 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-# web stuff
+# Web stuff
 src/main/resources/static/typings/
 src/main/resources/static/node_modules
 src/main/resources/static/node
 src/main/resources/static/npm-debug.log
+#TypeScript
+src/main/resources/static/app/**/*.js
+src/main/resources/static/app/**/*.map
+
 
 # JavaScript stuff
 node
 node_modules
 typings
 
-#TypeScript
-app/**/*.js
-app/**/*.map
 
 # IDEA
 /.idea/
