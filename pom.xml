@@ -31,6 +31,12 @@
 		<frontend-maven-plugin.nodeVersion>v0.10.32</frontend-maven-plugin.nodeVersion>
 		<frontend-maven-plugin.npmVersion>2.1.8</frontend-maven-plugin.npmVersion>
 		<frontend-maven-plugin.version>0.0.23</frontend-maven-plugin.version>
+
+		<!-- JaCoCo-->
+		<jacoco-maven-plugin.version>0.7.7.201606060606</jacoco-maven-plugin.version>
+		<argLine>-XX:PermSize=128m -XX:MaxPermSize=512m</argLine>
+		<!-- Coveralls -->
+		<coveralls-maven-plugin.version>4.2.0</coveralls-maven-plugin.version>
 	</properties>
 
 	<dependencies>
@@ -113,6 +119,91 @@
 						</goals>
 						<configuration>
 							<arguments>run tsc</arguments>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- Jacoco -->
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>${jacoco-maven-plugin.version}</version>
+				<!--
+				<configuration>
+					<excludes>
+						<exclude>**/ch/keepcalm/services/**</exclude>
+					</excludes>
+				</configuration>
+				-->
+
+				<executions>
+					<execution>
+						<id>default-prepare-agent</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>default-report</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>check-coverage</id>
+						<goals>
+							<goal>check</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<!-- Bundle -->
+								<rule>
+									<element>BUNDLE</element>
+									<excludes>
+										<exclude>**/*Test*</exclude>
+										<exclude>**/*Documentation*</exclude>
+									</excludes>
+									<limits>
+										<limit>
+											<counter>COMPLEXITY</counter>
+											<value>COVEREDRATIO</value>
+											<!-- <minimum>0.60</minimum>-->
+										</limit>
+									</limits>
+								</rule>
+								<!-- Package -->
+								<rule>
+									<element>PACKAGE</element>
+									<limits>
+										<limit>
+											<counter>LINE</counter>
+											<value>COVEREDRATIO</value>
+											<!--<minimum>0.80</minimum>-->
+										</limit>
+										<limit>
+											<counter>CLASS</counter>
+											<value>MISSEDCOUNT</value>
+											<!--<maximum>0</maximum>-->
+										</limit>
+									</limits>
+								</rule>
+								<!-- Class -->
+								<rule>
+									<element>CLASS</element>
+									<excludes>
+										<exclude>*Test*</exclude>
+									</excludes>
+									<limits>
+										<limit>
+											<counter>LINE</counter>
+											<value>COVEREDRATIO</value>
+											<!-- <minimum>0.50</minimum>-->
+										</limit>
+									</limits>
+								</rule>
+							</rules>
 						</configuration>
 					</execution>
 				</executions>
