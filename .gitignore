@@ -17,6 +17,15 @@ src/main/resources/static/node_modules
 src/main/resources/static/node
 src/main/resources/static/npm-debug.log
 
+# JavaScript stuff
+node
+node_modules
+typings
+
+#TypeScript
+app/**/*.js
+app/**/*.map
+
 # IDEA
 /.idea/
 *.iml
@@ -32,6 +41,10 @@ src/main/resources/static/npm-debug.log
 release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
+*.asciidoctor
+src/docs/asciidoc-resources/*.png
+src/docs/asciidoc-resources/*.tmp
+src/docs/asciidoc/*.tmp
 
 
 #OS meta files
@@ -43,3 +56,6 @@ buildNumber.properties
 /data/
 /global-groovy.log
 rebel.xml
+
+
+
