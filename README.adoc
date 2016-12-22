@@ -28,3 +28,33 @@ Copy the file {project-artifact-name}.jar anywhere on the server.
 The JAR already contains the configuration for all available environments.
 For further information please visit the  {spring-boot-ref-guide}[Spring Boot Reference Guide]
 
+
+
+=== Build Frontend Application:
+==== Reference :
+https://www.sitepoint.com/angular-2-tutorial/
+http://blog.aymenfurter.ch/index.php/2016/08/21/integrating-a-angular2-cli-based-application-into-a-maven-build-process-of-a-servlet-based-java-application/
+
+===== Install Angular CLI
+
+ $ npm install -g angular-cli
+
+To verify whether your installation completed successfully, you can run:
+
+ $  ng version
+
+which should display the version you have installed:
+
+ $  angular-cli: 1.0.0-beta.24
+ $  node: 7.2.1
+ $  os: darwin x64
+
+===== Create Frontend Application with Angular-CLI
+Change in 'src' folder.
+
+    $ cd src/main
+
+Create new frontend application with 'ng new '
+
+    $ ng new frontend
+
