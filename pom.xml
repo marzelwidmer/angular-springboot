@@ -28,9 +28,10 @@
 		<lombok.version>1.16.10</lombok.version>
 
 		<!-- frontend -->
-		<frontend-maven-plugin.nodeVersion>v0.10.32</frontend-maven-plugin.nodeVersion>
-		<frontend-maven-plugin.npmVersion>2.1.8</frontend-maven-plugin.npmVersion>
-		<frontend-maven-plugin.version>0.0.23</frontend-maven-plugin.version>
+		<frontend-maven-plugin.version>0.0.26</frontend-maven-plugin.version>
+		<frontend-maven-plugin.nodeVersion>v7.2.1</frontend-maven-plugin.nodeVersion>
+		<frontend-maven-plugin.npmVersion>4.0.5</frontend-maven-plugin.npmVersion>
+		<frontend-working-dir>src/main/frontend/todo-app</frontend-working-dir>
 
 		<!-- JaCoCo-->
 		<jacoco-maven-plugin.version>0.7.7.201606060606</jacoco-maven-plugin.version>
@@ -89,15 +90,54 @@
 			</plugin>
 
 			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>exec-npm-install</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<workingDirectory>${frontend-working-dir}</workingDirectory>
+							<executable>npm</executable>
+							<arguments>
+								<argument>install</argument>
+							</arguments>
+						</configuration>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>exec-npm-ng-build</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<workingDirectory>${frontend-working-dir}</workingDirectory>
+							<executable>ng</executable>
+							<arguments>
+								<argument>build</argument>
+								<argument>-prod</argument>
+								<argument>--output-path=${project.basedir}/src/main/resources/static</argument>
+							</arguments>
+						</configuration>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!--<plugin>
 				<groupId>com.github.eirslett</groupId>
 				<artifactId>frontend-maven-plugin</artifactId>
 				<version>${frontend-maven-plugin.version}</version>
+				&lt;!&ndash; optional &ndash;&gt;
 				<configuration>
-					<workingDirectory>src/main/resources/static</workingDirectory>
+					<workingDirectory>${frontend-working-dir}</workingDirectory>
 				</configuration>
 				<executions>
+					&lt;!&ndash; Install Node And NPM &ndash;&gt;
 					<execution>
-						<id>install-node-npm</id>
+						<id>install node and npm</id>
 						<goals>
 							<goal>install-node-and-npm</goal>
 						</goals>
@@ -106,23 +146,31 @@
 							<npmVersion>${frontend-maven-plugin.npmVersion}</npmVersion>
 						</configuration>
 					</execution>
+					&lt;!&ndash;  NPM build &ndash;&gt;
 					<execution>
-						<id>npm-install-modules</id>
+						<id>npm install</id>
 						<goals>
 							<goal>npm</goal>
 						</goals>
+						<phase>generate-resources</phase>
 					</execution>
+					&lt;!&ndash; Gulp build &ndash;&gt;
 					<execution>
-						<id>tsc</id>
+						<id>gulp build</id>
 						<goals>
-							<goal>npm</goal>
+							<goal>gulp</goal>
 						</goals>
+						&lt;!&ndash; optional: the default phase is "generate-resources" &ndash;&gt;
+						<phase>generate-resources</phase>
 						<configuration>
-							<arguments>run tsc</arguments>
+							&lt;!&ndash; optional: if not specified, it will run gulp's default
+                            task (and you can remove this whole <configuration> section.) &ndash;&gt;
+							<arguments>build</arguments>
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin>-->
+
 
 			<!-- Jacoco -->
 			<plugin>

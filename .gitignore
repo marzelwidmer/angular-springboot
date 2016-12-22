@@ -12,13 +12,9 @@
 hs_err_pid*
 
 # Web stuff
-src/main/resources/static/typings/
-src/main/resources/static/node_modules
-src/main/resources/static/node
-src/main/resources/static/npm-debug.log
-#TypeScript
-src/main/resources/static/app/**/*.js
-src/main/resources/static/app/**/*.map
+src/main/resources/static/**
+src/main/frontend/src/app/**/*.js
+src/main/frontend/src/app/**/*.map
 
 
 # JavaScript stuff
