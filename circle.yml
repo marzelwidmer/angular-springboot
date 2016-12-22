@@ -2,6 +2,7 @@
 dependencies:
   pre:
     - npm install -g npm
+    - npm install -g angular-cli
 machine:
   java:
     version: oraclejdk8
