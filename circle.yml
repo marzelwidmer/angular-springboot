@@ -1,7 +1,7 @@
 ## Customize the test machine
 dependencies:
   pre:
-    - npm install -g npm
+    - npm install npm@latest -g # Should fix bug in ng test
     - npm install angular-cli@latest -g
 machine:
   java:
