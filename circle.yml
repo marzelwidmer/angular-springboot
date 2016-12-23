@@ -16,5 +16,5 @@ test:
     - codacy-coverage-reporter -l Java -r target/site/jacoco/jacoco.xml
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
     - find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
-    - cp -R target/angular-springboot*.jar $CIRCLE_ARTIFACTS
+#- cp -R target/angular-springboot*.jar $CIRCLE_ARTIFACTS
 
