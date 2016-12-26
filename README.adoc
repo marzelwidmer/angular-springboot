@@ -33,6 +33,7 @@ For further information please visit the  {spring-boot-ref-guide}[Spring Boot Re
 === Build Frontend Application:
 ==== Reference :
 https://www.sitepoint.com/angular-2-tutorial/
+
 http://blog.aymenfurter.ch/index.php/2016/08/21/integrating-a-angular2-cli-based-application-into-a-maven-build-process-of-a-servlet-based-java-application/
 
 ===== Install Angular CLI
