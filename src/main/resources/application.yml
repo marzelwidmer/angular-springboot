@@ -1,0 +1,35 @@
+#Spring
+spring:
+  output:
+    ansi:
+      enabled: always
+
+# Infos Build
+info:
+  build:
+    artifact: @project.artifactId@
+    name: @project.name@
+    description: @project.description@
+    version: @project.version@
+
+# Management
+management:
+  address: ${server.address}
+  port: ${server.port}
+  context-path: /manage
+  info:
+     git:
+       mode: full
+
+# Server
+server:
+  address:  127.0.0.1
+  port: 8080
+  max-http-header-size: 16380
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain
+
+# Logging
+logging:
+  path: log

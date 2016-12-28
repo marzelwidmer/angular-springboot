@@ -1,0 +1,58 @@
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# Web stuff
+src/main/resources/static/**
+src/main/frontend/src/app/**/*.js
+src/main/frontend/src/app/**/*.map
+
+
+# JavaScript stuff
+node
+node_modules
+typings
+
+
+# IDEA
+/.idea/
+*.iml
+
+# Eclipse
+/.classpath
+/.project
+/.settings/
+
+# Maven
+/log/
+/target/
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+*.asciidoctor
+src/docs/asciidoc-resources/*.png
+src/docs/asciidoc-resources/*.tmp
+src/docs/asciidoc/*.tmp
+
+
+#OS meta files
+.DS_Store
+
+# Misc
+/tmp/
+/bin/
+/data/
+/global-groovy.log
+rebel.xml
+
+
+
