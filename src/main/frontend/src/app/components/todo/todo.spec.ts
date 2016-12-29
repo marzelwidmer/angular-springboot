@@ -1,4 +1,4 @@
-import {Todo} from './todo';
+import {Todo} from './todo-app.component';
 
 describe('Todo', () => {
   it('should create an instance', () => {

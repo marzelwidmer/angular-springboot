@@ -2,7 +2,7 @@
 
 import {TestBed, async, inject} from '@angular/core/testing';
 import {TodoDataService} from './todo-data.service';
-import {Todo} from "./todo";
+import {Todo} from "./todo-app.component";
 
 /**
  *
