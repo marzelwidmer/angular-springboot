@@ -1,0 +1,35 @@
+.content {
+  &-box {
+    padding: 16px;
+    background-color: $ecruLight;
+    margin-bottom: 24px;
+    min-width: 100%;
+
+    & .icon-info {
+      color: $ecru;
+    }
+    & dd {
+      margin: 0 0 8px 0;
+    }
+
+    & dt {
+      font-family: $akkuratbold;
+    }
+    & input {
+      font-family: $akkuratregular;
+      font-size: 16px;
+      padding: 12px;
+      width: 100%;
+      border: 1px solid #CAB790;
+      border-radius: 3px;
+    }
+  }
+  // TODO remove at the end
+  &-block {
+    &:before {
+      content: 'ContentBlock style removed use list-block or create custom component';
+      color: red;
+      font-size: 20px;
+    }
+  }
+}

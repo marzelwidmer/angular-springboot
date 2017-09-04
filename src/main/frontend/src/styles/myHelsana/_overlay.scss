@@ -1,0 +1,42 @@
+.overlay {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 3000;
+
+  ul {
+    margin-left: 16px;
+  }
+
+  &__content {
+    display: none;
+  }
+  & &__content {
+    display: block;
+  }
+
+  &__container {
+    background-color: $white;
+    padding: 16px;
+    border-radius: 2px;
+    margin: 16px;
+    width: 100%;
+    max-width: 720px;
+    box-sizing: border-box;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+
+  &__backdrop {
+    height: 100%;
+    width: 100%;
+    background-color: rgba($greyDarkest, 0.6);
+    position: absolute;
+    z-index: 6000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

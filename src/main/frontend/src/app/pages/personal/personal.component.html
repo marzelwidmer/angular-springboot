@@ -1,0 +1,38 @@
+<aside class="col-lg-3 col-sm-4 col-xs-12 part">
+	<myh-data-block [title]="'personal.data.personalien'" [list]="personal" [link]="['/personal', 'data', index]">
+
+	</myh-data-block>
+
+	<myh-data-block [title]="'personal.data.personalien'" [list]="contact" [link]="['/personal', 'contact', index]">
+
+	</myh-data-block>
+
+	<!-- TODO: delete-->
+	<a [routerLink]="['/personal', 0]">person 0</a>
+	<a [routerLink]="['/personal', 1]">person 1</a>
+	<a [routerLink]="['/personal', 2]">person 2</a>
+	<a [routerLink]="['/personal', 3]">person 3</a>
+
+</aside>
+
+<section class="col-lg-9 col-sm-8 col-xs-12 part">
+	<div>
+		<h3>Adressen</h3>
+	</div>
+
+	<div>
+		<h3>Vertrag</h3>
+		<myh-contract-data [contract]="member?.contracts[0]">
+
+		</myh-contract-data>
+	</div>
+
+	<div>
+		<h3>Einzahlungen</h3>
+	</div>
+
+	<div>
+		<h3>Auszahlungen</h3>
+	</div>
+
+</section>

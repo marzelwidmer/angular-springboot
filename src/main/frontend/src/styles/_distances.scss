@@ -1,0 +1,24 @@
+$list: 104 64 40 48 32 24 16 12 8 0;
+$kinds: padding margin;
+
+@each $size in $list {
+  @each $kind in $kinds {
+    .#{$kind}-#{$size} {
+      #{$kind}: #{$size}px;
+      &-top {
+        #{$kind}-top: #{$size}px;
+      }
+      &-right {
+        #{$kind}-right: #{$size}px;
+      }
+      &-bottom {
+        #{$kind}-bottom: #{$size}px;
+      }
+      &-left {
+        #{$kind}-left: #{$size}px;
+      }
+    }
+  }
+
+}
+

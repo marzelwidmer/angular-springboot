@@ -1,0 +1,51 @@
+<div class="modal fade" [ngClass]="{'in':open}" id="mobile-menu" tabindex="-1" role="dialog"
+     data-backdrop="false"
+     aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <ul class="lang-selector">
+          <li *ngFor="let language of translation.languages" (click)="changeLanguage(language)">
+            <span>{{language.value}}</span>
+          </li>
+        </ul>
+        <button type="button" (click)="onCloseClick.emit(true)" class="close" data-dismiss="modal">
+          <i class="icon-close"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ul class="mobile-nav">
+          <li>
+            <a href="pageUrl">
+              {{'general.tab.overview'|translate}}
+            </a>
+          </li>
+          <li>
+            <a href="pageUrl">
+              {{'general.tab.personal'|translate}}
+            </a>
+          </li>
+          <li>
+            <a href="pageUrl">
+              {{'general.tab.invoice'|translate}}
+            </a>
+          </li>
+          <li>
+            <a href="${pageUrl}">
+              {{'general.tab.conversation'|translate}}
+            </a>
+          </li>
+          <li>
+            <a href="pageUrl">
+              {{'general.tab.journal'|translate}}
+            </a>
+          </li>
+          <li><a href="pageUrl">
+            {{'general.tab.document'|translate}}
+          </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,108 @@
+<section class="mobile-header container visible-sm">
+  <div class="mobile-header-content">
+    <button (click)="setModalOpen(true)" class="menu-button">
+      <span class="icon-menu"></span>
+    </button>
+
+    <myh-dropdown class="margin-24-left" [type]="'mobile-left-align'"
+              [iconClass]="'icon-phone'">
+
+      <ul>
+        <ng-container *ngIf="'!global.portalAccount.staff'">
+          <ng-container *ngIf="'global.portalAccount.favor.addressPraemie.countryISO3 eq CHE'">
+            <li>
+              <div>
+                <div class="bold">{{'general.contact.menu.portalhelp'|translate}}</div>
+                <span>
+									  {{'general.contact.menu.portalhelp.open'|translate}}
+														  </span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <div class="bold">
+                  {{'general.contact.menu.helpdesk'|translate}}
+                </div>
+                <span>'global.portalAccount.favor.kbtTelephone'</span>
+                <span *ngIf="'${global.portalAccount.favor.kbtTeamName ne null}'">
+									'global.portalAccount.favor.kbtTeamName'<br/>
+								  </span>
+                <span> {{'general.contact.menu.helpdesk.open'|translate}}</span>
+                <br/>
+                <img src="imageUrl"/>
+              </div>
+            </li>
+          </ng-container>
+          <ng-container *ngIf="'${global.portalAccount.favor.addressPraemie.countryISO3 ne CHE}'">
+            <li>
+              <div>
+                <div class="bold">
+                  {{'general.contact.menu.abroad'|translate}}
+                </div>
+                <p>
+                  <span class="icon-phone"></span>
+                  <span> {{'general.contact.menu.abroad.nr'|translate}}</span>
+
+                  <span *ngIf="'${global.portalAccount.favor.kbtTeamName ne null}'">
+										'global.portalAccount.favor.kbtTeamName'|translate}}<br/>
+									  </span>
+                  <span> {{'general.contact.menu.abroad.open'|translate}}</span>
+                  <br/>
+                  <img src="imageUrl"/>
+
+                </p>
+              </div>
+            </li>
+          </ng-container>
+        </ng-container>
+
+        <li *ngIf="'${global.portalAccount.staff}'">
+          <div>
+            <div class="bold">
+              {{'general.contact.menu.portalhelp'|translate}}
+            </div>
+            <p>
+              <span class="icon-phone"></span>
+              <span>'global.portalAccount.favor.kbtTelephone'</span>
+              <span> {{'general.contact.menu.portalhelp.open'|translate}}</span>
+              <br/>
+              <img src="imageUrl"/>
+            </p>
+          </div>
+        </li>
+
+        <li><a href="linkUrl">
+          {{'general.contact.menu.helplink'|translate}}
+        </a></li>
+      </ul>
+
+    </myh-dropdown>
+
+    <myh-dropdown [type]="'mobile-left-align'" [iconClass]="'icon-avatar-male'">
+
+      <!--<bb:env include="DEV">
+			<bb:url var="logoutUrl" pagename="logout"/>
+		  </bb:env>
+		  <bb:env exclude="DEV">
+			<c:set var="logoutUrl"
+				   value="${contextRoot}?logout&language=${global.language}"/>
+		  </bb:env>-->
+      <ng-container *ngIf="'global.portalAccount.appType ne PUBLIC'">
+        <ng-container *ngIf="'global.portalAccount.appType eq PORTAL'">
+
+          <li><a href="settingUrl">
+            {{'setting.index.title'|translate}}
+          </a></li>
+        </ng-container>
+        <%-- logout is only possible in LIGHT or PORTAL mode --%>
+        <li><a href="logoutUrl">
+          {{'general.logout'|translate}}
+        </a></li>
+      </ng-container>
+    </myh-dropdown>
+    <div class="mobile-logo">
+      <img src="assets/img/helsana_Logo_mobile.svg">
+    </div>
+  </div>
+  <myh-header-navigation-mobile [open]="modalOpen" (onCloseClick)="setModalOpen(!$event)"></myh-header-navigation-mobile>
+</section>

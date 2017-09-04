@@ -1,0 +1,47 @@
+<ng-container class="content-box" *ngIf="false && '!global.portalAccount.multiPersonOverall'">
+  <h4>{{members[0].person.firstName}} {{members[0].person.lastName}}</h4>
+  <dl>
+
+    <dt>{{'personal.data.geburtsdatum'|translate}}</dt>
+
+    <dd>{{members[0].person.birthday | date:'dd.MM.y'}}</dd>
+
+    <dt>{{'overview.index.wohnadresse'|translate}}</dt>
+    <dd>
+      {{members[0].address.street}} {{members[0].address.streetNr}}
+    </dd>
+  </dl>
+</ng-container>
+<div *ngIf="members?.length" class="content-box">
+
+  <ng-container>
+    <section class="content-switch">
+      <div *ngIf="'global.portalAccount.multiPersonOverall'" class="flex space margin-16-bottom">
+        <span (click)="decrement()" class="icon-arrow-left-circle arrow-left"></span>
+        <div class="flex flex--column">
+          <h3 class="margin-0">{{members[index].person.firstName}}</h3>
+          <dd>{{members[index].person.birthday | date:'dd.MM.y'}}</dd>
+        </div>
+        <span (click)="increment()" class="icon-arrow-right-circle arrow-right"></span>
+      </div>
+      <!--TODO does not match with myhelsana-->
+      <ul *ngIf="members[index].policeList?.length && members[index].policeList[0].produkte?.length" class="list">
+        <li class="flex flex--align-start space" *ngFor="let product of members[index].policeList[0].produkte">
+          <span class="blue ${theme}">{{product.produktId}}</span>
+          <i class="icon-info"></i>
+        </li>
+      </ul>
+
+      <a class="bold" href="'policenUrl'">{{'overview.index.daten_anzeigen' | translate}} &gt;</a>
+      <ng-container *ngIf="'global.portalAccount.multiPersonOverall'">
+        <br/><br/>
+
+        <div class="flex space">
+          <div></div>
+          <small>{{index+1}}/{{members.length}}</small>
+        </div>
+      </ng-container>
+    </section>
+  </ng-container>
+</div>
+

@@ -1,0 +1,43 @@
+<footer>
+  <section class="container back-to-top margin-40-top">
+    <a href="javascript:void(0);" (click)="goToTop()">
+      <span class="icon-arrow"></span>
+      <span>{{'general.up'|translate}}</span>
+    </a>
+  </section>
+  <section class="footer margin-40-top">
+    <div #container class="container" [ngClass]="{'wrapped': wrapped,'wrapped-nav': wrappedNavigation}">
+      <p #text class="footer__text padding-16-right">{{'general.footer.visitsocial'|translate}}</p>
+
+      <div #social class="footer__social">
+        <ul>
+          <li><a href="https://www.facebook.com/helsana.ch" title="Facebook"
+                 target="_blank"><i class="icon-facebook"></i></a></li>
+          <li><a href="https://twitter.com/helsana" title="Twitter" target="_blank"><i
+            class="icon-twitter"></i> </a></li>
+          <li><a href="https://plus.google.com/+helsana/posts" title="Google+"
+                 target="_blank"><i class="icon-google"></i></a></li>
+          <li><a href="https://www.youtube.com/helsana" title="YouTube" target="_blank"><i
+            class="icon-youtube"></i></a>
+          </li>
+          <li><a href="https://www.xing.com/companies/helsanaversicherungenag" title="Xing"
+                 target="_blank"><i class="icon-xing"></i></a></li>
+          <li><a href="https://www.linkedin.com/company/helsana-versicherungen-ag" title="LinkedIn"
+                 target="_blank"><i class="icon-linkedin"></i></a></li>
+        </ul>
+        <div class="footer__divider--vertical"></div>
+      </div>
+      <div #divider class="footer__divider"></div>
+      <ul class="footer__nav">
+        <li #copyright>&copy; Helsana</li>
+        <li #publication><a href="publication.url"
+                            target="_blank">{{'general.footer.nav.publication'|translate}}</a></li>
+        <li #privacy><a href="privacy.url"
+                        target="_blank">{{'general.footer.nav.privacy'|translate}}</a></li>
+        <li #legal><a href="legal.url"
+                      target="_blank">{{'general.footer.nav.legal'|translate}}</a></li>
+      </ul>
+
+    </div>
+  </section>
+</footer>

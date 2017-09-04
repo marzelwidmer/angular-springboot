@@ -1,0 +1,10 @@
+<div class="dropdown" [ngClass]="{'open': isOpen, 'has-icon': iconClass}">
+  <div href="javascript:void(0);" (click)="toggle()" class="dropdown__header {{type}}" data-toggle="dropdown">
+    <i *ngIf="iconClass" class="{{iconClass}}" [ngClass]="{'dropdown__pre-icon': !!title}"></i>
+    <span class="{{type}}">{{(title | translate) || title}}</span>
+    <i class="icon-arrow"></i></div>
+  <div class="dropdown__backdrop" (click)="close()"></div>
+  <div class="dropdown__content {{type}}" (click)="inClick($event)">
+    <ng-content ></ng-content>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<nav class="navbar">
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <!--      TODO mark active class with class active-->
+      <li routerLinkActive="active">
+        <a routerLink="/overview">
+          {{'general.tab.overview'|translate}}</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/personal">
+          {{'general.tab.personal'|translate}}</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/invoice">
+          {{'general.tab.invoice'|translate}}
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/conversation">
+          {{'general.tab.conversation'|translate}}
+          <span *ngIf="false && 'global.unreadMessages > 0'" class="badge">'global.unreadMessages'</span>
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/journal" routerLinkActive="active">
+          {{'general.tab.journal'|translate}}
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/document">
+          {{'general.tab.document'|translate}}
+          <span *ngIf="false && 'global.unreadDocuments > 0'" class="badge">
+			   'global.unreadDocuments'
+			 </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

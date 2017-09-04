@@ -1,0 +1,118 @@
+//Colors
+$white:                 #FFF;
+$primaryColor:          #99063f;
+$primaryColorDark:      #4d0520;
+$helsanaGreen:          #b3ba12;
+$darkBgColor:           #263238;
+$textColor:                #333;
+$lightTextColor:        #f5f5f5;
+
+// basic
+$greyDarkest:              #333;
+$greyDark:                 #666;
+$greyMedium:               #888;
+$grey:                     #ccc;
+$greyLight:             #d8d8d8;
+$greySuperlight:        #f5f5f5;
+
+// primary colors
+$helsanaRed:            #9a0941;
+$helsanaLightRed:       #D35186;
+$helsanaRedHover:       #3d0520;
+
+// product colors
+$blueSuperdark:         #273559;
+$blueDark:              #425896;
+$blue:                  #8296c4;
+$blueLight:             #f0f2f8;
+
+$greenSuperdark:        #3d4700;
+$greenDark:             #7d8701;
+$green:                 #b3ba12;
+$greenLight:            #f5f6e2;
+
+$orangeSuperdark:       #bd2900;
+$orangeDark:            #e24700;
+$orange:                #f08100;
+$orangeLight:           #fcf1e4;
+
+$yellowSuperdark:       #c14700;
+$yellowDark:            #d38c0b;
+$yellow:                #f1b81c;
+$yellowLight:           #fef7e4;
+
+$ecruSuperdark:         #998b6e;
+$ecruDark:              #b3a281;
+$ecru:                  #cab790;
+$ecruLight:             #f4f1e9;
+
+// button colors
+$button: $helsanaRed;
+$buttonHover: $primaryColorDark;
+$buttonDisabled:        #e7e7e7;
+
+// input field colors
+$inputNormal:              #bbb;
+$inputActive:           #458ee5;
+$inputGreenRight:       #4a9e02;
+$inputRedError:         #df0202;
+$inputDisabled:         #d8d8d8;
+
+//Table
+$rowhover: #f0f0f0;
+
+//Form
+$chevron: #EAE2D3;
+
+// Footer
+$footerline:            #E5E5E5;
+
+//Cards
+$dividerline: #CCC;
+
+//Dropdown
+$linkdivider: $footerline;
+
+//Cross
+$crossred: #E00202;
+//Check
+$checkgreen: #009933;
+//Datepicker
+$datepickerborder: #CBB88E;
+
+
+//Color Classes
+.color {
+  &-product {
+    &-green {
+      color: $green;
+    }
+    &-orange {
+      color: $orange;
+    }
+    &-blue {
+      color: $blue;
+    }
+  }
+  &-ecru {
+    color: $ecru;
+  }
+  &-consult {
+    &-red {
+      color:$crossred;
+    }
+    &-green {
+      color:$checkgreen;
+    }
+  }
+
+}
+
+// new myHelsana 1.9
+$akkuratlight: 'akkurat-light';
+$akkuratregular: 'akkurat-regular';
+$akkuratbold: 'akkurat-bold';
+$helsanaIcons: 'Helsana Iconfont';
+
+$dividerLineColor :#E5E5E5;
+$iconDefaultSize: 20px;

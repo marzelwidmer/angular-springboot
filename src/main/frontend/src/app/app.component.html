@@ -1,48 +1,10 @@
-<section class="todoapp">
-  <header class="header">
-    <h1>Todos</h1>
-    <!-- new item -->
-    <!--
-    [(ngModel)]="newTodo.title":
-        adds a two-way binding between the input value and newTodo.title
-    (keyup.enter)="addTodo()":
-      tells Angular to execute addTodo() when the enter key was pressed while typing in the input element
-     -->
-    <input class="new-todo" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTodo.title"
-           (keyup.enter)="addTodo()">
-  </header>
-  <!-- *ngIf="todos.length > 0":
-      only show the section element and all its children when there is at least one todo
-      -->
-  <section class="main" *ngIf="todos.length > 0">
-    <ul class="todo-list">
-      <!--
-      *ngFor="let todo of todos":
-        loop over all todo’s and assign current todo to a variable called todo for each iteration
-      [class.completed]="todo.complete":
-        apply CSS class complete to li element when todo.complete is truthy
-      -->
-      <li *ngFor="let todo of todos" [class.completed]="todo.complete">
-        <div class="view">
-          <!--
-          (click)="toggleTodoComplete(todo)":
-            execute toggleTodoComplete(todo) when the checkbox is clicked
-          [checked]="todo.complete":
-            assign the value of todo.complete to the property checked of the element
-          (click)="removeTodo(todo)":
-            execute removeTodo(todo) when the destroy button is clicked
-          -->
-          <input class="toggle" type="checkbox" (click)="toggleTodoComplete(todo)" [checked]="todo.complete">
-          <label>{{todo.title}}</label>
-          <button class="destroy" (click)="removeTodo(todo)"></button>
-        </div>
-      </li>
-    </ul>
-  </section>
-  <!-- *ngIf="todos.length > 0":
-    only show the section element and all its children when there is at least one todo
-    -->
-  <footer class="footer" *ngIf="todos.length > 0">
-    <span class="todo-count"><strong>{{todos.length}}</strong> {{todos.length == 1 ? 'item' : 'items'}} left</span>
-  </footer>
-</section>
+<myh-header></myh-header>
+<main>
+	<section class="container">
+		<div class="row margin-40-top">
+			<router-outlet></router-outlet>
+		</div>
+	</section>
+</main>
+<myh-footer></myh-footer>
+

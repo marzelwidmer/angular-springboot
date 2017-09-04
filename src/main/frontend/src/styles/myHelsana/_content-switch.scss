@@ -1,0 +1,12 @@
+.content-switch {
+  %arrow {
+    color: $helsanaRed;
+  }
+
+  .arrow-left {
+    @extend %arrow;
+  }
+  .arrow-right {
+    @extend %arrow;
+  }
+}

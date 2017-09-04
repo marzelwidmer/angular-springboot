@@ -1,0 +1,38 @@
+@import "../../../../styles/constants";
+
+.list-block {
+  margin-bottom: 40px;
+
+  & .list {
+    margin: 0 0 8px 0;
+    list-style: none;
+    border-top: 1px solid $dividerLineColor;
+
+    & li {
+      padding: 8px 0;
+      border-bottom: 1px solid $dividerLineColor;
+
+      &.final-link {
+        font-family: $akkuratbold;
+        border-bottom: none;
+      }
+    }
+  }
+
+  & .link {
+    align-items: baseline;
+    display: flex;
+    width: 100%;
+
+    > .content {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+    }
+  }
+
+  & .pre-icon {
+    min-width: $iconDefaultSize;
+    margin-right: 8px;
+  }
+}

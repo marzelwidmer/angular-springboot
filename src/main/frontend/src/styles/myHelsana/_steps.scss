@@ -1,0 +1,50 @@
+.step {
+  width: 120px;
+  border-top: 1px solid #e5e5e5;
+  position: relative;
+  display: block;
+  float: left;
+  font-size: 12px;
+  padding-top: 19px;
+  @include max-width(sm) {
+    width: 48px;
+  }
+
+  &:last-child {
+    border: 0;
+  }
+
+  &__process {
+    padding: 30px 0 20px 16px;
+    @extend .col-xs-12;
+  }
+
+  &__label {
+    .active > & {
+      display: block;
+    }
+
+    @include max-width(sm) {
+      display: none;
+    }
+  }
+
+  &__number {
+    display: block;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    font-size: 14px;
+    background-color: #e5e5e5;
+    top: -13px;
+    font-family: $akkuratbold, Arial, sans-serif;
+    border-radius: 3px;
+
+    .active & {
+      background-color: $greyDark;
+      color: $white;
+    }
+  }
+}

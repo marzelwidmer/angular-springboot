@@ -1,0 +1,176 @@
+$columns: 12 !default;
+$gutter-width: 24px !default;
+$outer-margin: 24px !default;
+
+$breakpoints: xs $xs,
+sm $sm,
+md $md,
+lg $lg !default;
+
+$orders: 0 1 2 3 4 5;
+
+$gutter-compensation: $gutter-width * .5 * -1;
+$half-gutter-width: $gutter-width * .5;
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0 24px;
+}
+
+.row {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-right: $gutter-compensation;
+  margin-left: $gutter-compensation;
+}
+
+.row.reverse {
+  flex-direction: row-reverse;
+}
+
+.col.reverse {
+  flex-direction: column-reverse;
+}
+
+@mixin generate-breakpoint($name) {
+  %col-#{$name}-common {
+    box-sizing: border-box;
+    flex: 0 0 auto;
+    padding-right: $half-gutter-width;
+    padding-left: $half-gutter-width;
+  }
+
+  .col-#{$name} {
+    @extend %col-#{$name}-common;
+  }
+
+  @for $i from 1 through $columns {
+    .col-#{$name}-#{$i} {
+      @extend %col-#{$name}-common;
+    }
+  }
+
+  @for $i from 0 through $columns {
+    .col-#{$name}-offset-#{$i} {
+      @extend %col-#{$name}-common;
+    }
+  }
+
+  .col-#{$name} {
+    flex-grow: 1;
+    flex-basis: 0;
+    max-width: 100%;
+  }
+
+  @for $i from 1 through $columns {
+    .col-#{$name}-#{$i} {
+      flex-basis: 100% / $columns * $i;
+      max-width: 100% / $columns * $i;
+      min-width: 100% / $columns * $i;
+    }
+  }
+
+  @each $order in $orders {
+    .order-#{$name}-#{$order} {
+      order: $order;
+    }
+  }
+
+  @for $i from 0 through $columns - 1 {
+    .col-#{$name}-offset-#{$i} {
+      margin-left: 100% / $columns * $i;
+    }
+  }
+
+  .start-#{$name} {
+    justify-content: flex-start;
+    text-align: start;
+  }
+
+  .center-#{$name} {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .end-#{$name} {
+    justify-content: flex-end;
+    text-align: end;
+  }
+
+  .top-#{$name} {
+    align-items: flex-start;
+  }
+
+  .middle-#{$name} {
+    align-items: center;
+  }
+
+  .bottom-#{$name} {
+    align-items: flex-end;
+  }
+
+  .around-#{$name} {
+    justify-content: space-around;
+  }
+
+  .between-#{$name} {
+    justify-content: space-between;
+  }
+
+  .first-#{$name} {
+    order: -1;
+  }
+
+  .last-#{$name} {
+    order: 1;
+  }
+}
+
+$i: 0;
+@each $breakpoint in $breakpoints {
+  $name: nth($breakpoint, 1);
+  $size: nth($breakpoint, 2);
+
+  @if $i == 0 {
+
+    @include generate-breakpoint($name);
+
+  } @else {
+    @media only screen and (min-width: $size) {
+      .container {
+        width: calc(#{$size} - 2 * #{$gutter-width});
+      }
+
+      @include generate-breakpoint($name);
+    }
+
+  }
+
+  @media only screen and (max-width: $size) {
+    .hidden-#{$name} {
+      display: none;
+      @include min-width($name) {
+        display: block;
+      }
+    }
+  }
+  $i: $i + 1;
+}
+
+.visible-xs {
+  display: none;
+  @include max-width(xs) {
+    display: block;
+  }
+}
+
+.visible-sm {
+  display: none;
+  @include max-width(sm) {
+    display: block;
+  }
+}

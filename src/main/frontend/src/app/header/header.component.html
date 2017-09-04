@@ -1,0 +1,24 @@
+<ng-container>
+	<section class="header hidden-sm">
+		<ul class="nav-main">
+
+    <span *ngIf="true" exclude="PROD"> <!--if not production-->
+      <li>{{(whoAmIService.get()|async)?.benutzerId}} / {{(whoAmIService.get()|async)?.environment}}
+      </li>
+    </span>
+		</ul>
+		<div class="container">
+			<myh-header-actions></myh-header-actions>
+			<div class="row-logo">
+				<h2 e2e-id="title" *ngIf="'global.portalAccount.appType.equalsPORTAL'">
+					{{'general.myhelsana.title'|translate}}
+				</h2>
+				<img src="https://www.helsana.ch/ss/helsana/img/logo_DE.svg"/>
+			</div>
+		</div>
+		<myh-header-navigation-desktop *ngIf="'portal' || true"></myh-header-navigation-desktop>
+	</section>
+	<myh-mobile-header *ngIf="'portal' || true">
+	</myh-mobile-header>
+</ng-container>
+

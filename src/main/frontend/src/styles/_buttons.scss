@@ -1,0 +1,164 @@
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-image: none;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  user-select: none;
+  transition: all .2s;
+  text-decoration: none;
+  font-size: 1.6rem;
+  height:40px;
+
+  @include max-width(xs) {
+    display:block;
+    width:100%;
+  }
+
+  + .btn {
+    // apply gap to subsequent btns only on
+    // viewports larger than mobile
+    @include min-width(sm) {
+      margin-left: 16px;
+    }
+    // apply gap when block buttons follow
+    // a btn
+    &.btn--block {
+      @include max-width(xs) {
+        margin-top: 16px;
+      }
+    }
+  }
+
+  // block level button, spans the full width
+  // of its parent
+  &--block {
+    display: block;
+    width: 100%;
+  }
+
+  // modifiers to set color to buttons
+  &--red {
+    background-color: $primaryColor;
+    color: white;
+    &:hover, &:active {
+      color: white;
+      background-color: $helsanaRed;
+    }
+  }
+
+  &--red-outline {
+    border-color: $primaryColor;
+    background-color: transparent;
+    color: $primaryColor;
+    &:hover, &:active {
+      border-color: transparent;
+      background-color: $helsanaRed;
+      color: white;
+    }
+  }
+
+  &--white {
+    background-color: white;
+    color: $primaryColor;
+    &:hover, &:active {
+      background-color: $primaryColorDark;
+      color: white;
+    }
+  }
+
+  &--white-outline {
+    border-color: white;
+    background-color: transparent;
+    color: white;
+    &:hover, &:active {
+      border-color: $primaryColorDark;
+    }
+  }
+
+  &--grey {
+    background-color:$grey;
+    color: $white;
+    &:hover, &:active {
+      background-color: $primaryColorDark;
+      color: white;
+    }
+  }
+
+  &--grey-outline {
+    border-color: $greyDark;
+    background-color: transparent;
+    color: $greyDark;
+    &:hover, &:active {
+      color: $white;
+      background-color: $greyDark;
+      border-color: $greyDark;
+    }
+  }
+
+  &--previous, &--next {
+    border:1px solid $greyLight;
+  }
+
+  &--previous {
+    border-top-left-radius: 1px;
+    border-bottom-left-radius: 1px;
+  }
+  &--next {
+    border-top-right-radius: 1px;
+    border-bottom-right-radius: 1px;
+  }
+
+  &--previous:after, &--previous:before {
+    right: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  &--previous:after {
+    border-color: rgba(136, 183, 213, 0);
+    border-right-color:$white;
+    border-width: 20px;
+    margin-top: -20px;
+  }
+
+  &--previous:before {
+    border-right-color: $greyLight;
+    border-width: 21px;
+    margin-top: -21px;
+  }
+
+  &--next:after, &--next:before {
+    left: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  &--next:after {
+    border-color: rgba(136, 183, 213, 0);
+    border-left-color:$white;
+    border-width: 20px;
+    margin-top: -20px;
+  }
+  &--next:before {
+    border-left-color: $greyLight;
+    border-width: 21px;
+    margin-top: -21px;
+  }
+
+}

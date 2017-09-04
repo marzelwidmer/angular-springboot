@@ -1,0 +1,45 @@
+@mixin max-width($breakpoint) {
+  @if $breakpoint == xs {
+    @media (max-width: $xs) {
+      @content;
+    }
+  }
+  @if $breakpoint == sm {
+    @media (max-width: $sm) {
+      @content;
+    }
+  }
+  @if $breakpoint == md {
+    @media (max-width: $md) {
+      @content;
+    }
+  }
+  @if $breakpoint == lg {
+    @media (max-width: $lg) {
+      @content;
+    }
+  }
+}
+
+@mixin min-width($breakpoint) {
+  @if $breakpoint == xs {
+    @media (min-width: $xs + 1) {
+      @content;
+    }
+  }
+  @if $breakpoint == sm {
+    @media (min-width: $sm + 1) {
+      @content;
+    }
+  }
+  @if $breakpoint == md {
+    @media (min-width: $md + 1) {
+      @content;
+    }
+  }
+  @if $breakpoint == lg {
+    @media (min-width: $lg + 1) {
+      @content;
+    }
+  }
+}

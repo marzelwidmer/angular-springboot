@@ -1,0 +1,28 @@
+.detail {
+    &-list {
+        & h3 {
+            padding:0;
+            border:none;
+        }
+        list-style: none;
+        & li {
+            &:first-child {
+                border-top: 1px solid $dividerline;
+            }
+            padding: 16px 0;
+            border-bottom: 1px solid $dividerline;
+            & > div {
+                display: flex;
+                justify-content: space-between;
+                & > h3 {
+                    display: flex;
+                    flex-direction: column;
+                    margin:0;
+                    & > span {
+                        font-size:1.6rem;
+                    }
+                }
+            }
+        }
+    }
+}

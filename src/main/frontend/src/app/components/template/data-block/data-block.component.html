@@ -1,0 +1,14 @@
+<div class="content-box">
+	<h4>{{title|translate}}</h4>
+	<dl *ngIf="list?.length">
+		<ng-container *ngFor="let item of list">
+			<dt>{{item.key|translate}}
+				<i *ngIf="item.iconClass" class="{{item.iconClass}} pre-icon"></i>
+			</dt>
+			<dd>{{item.value}}</dd>
+		</ng-container>
+	</dl>
+	<div class="action-bar" *ngIf="link">
+		<a [routerLink]="link" class="btn btn--grey-outline">{{'general.form.button.bearbeiten'|translate}}</a>
+	</div>
+</div>

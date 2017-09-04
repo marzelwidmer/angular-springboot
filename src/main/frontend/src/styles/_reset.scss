@@ -1,0 +1,53 @@
+
+// The box-sizing is globally set on every element—including *:before and *:after,
+// to border-box. This ensures that the declared width of element is never
+// exceeded due to padding or border + reset margin and padding on all elements.
+* {
+  margin:0;
+  padding:0;
+  &, &:before, &:after {
+    box-sizing: border-box;
+  }
+}
+
+html {
+  // set top-level font-size to 10px
+  // scales 1rem to equal 10px
+  font-size: 10px;
+}
+
+button {
+  border:none;
+}
+
+body {
+  height: 100%;
+  font-family: $akkuratregular;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  color: #333;
+}
+
+b, strong {
+  font-weight: normal;
+  font-family: $akkuratbold;
+}
+
+// removes outlines on focus pseudostate globally
+a,
+button {
+  &:focus {
+    outline: 0;
+  }
+}
+
+button {
+  &.transparent {
+    background-color: transparent;
+    appearance: none;
+    border-radius: 0;
+    border: none;
+  }
+}
+
+

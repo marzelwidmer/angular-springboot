@@ -1,0 +1,212 @@
+.collapse {
+  display: none;
+}
+
+.collapse.in {
+  display: block;
+}
+
+.collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  transition-timing-function: ease;
+  transition-duration: .35s;
+  transition-property: height, visibility;
+}
+
+.panel {
+  border-bottom: 1px solid $dividerline;
+  // When Only 1 item in List show Panel Open
+  &.single {
+    & .panel-body {
+      margin-right:0;
+    }
+    & .panel-heading {
+      cursor: default;
+      & a {
+        cursor: default;
+      }
+    }
+    & .panel-footer {
+      margin-right:0;
+    }
+  }
+  &-group {
+    border-top: 1px solid $dividerline;
+  }
+  &-info {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 42px;
+    padding:8px 0;
+    &.single {
+      font-size: 20px;
+      margin-right: 0;
+    }
+    & .first {
+      width: 45%;
+      display: flex;
+    }
+
+    & .second {
+      flex-shrink: 0;
+      display: flex;
+    }
+    & .third {
+      flex-grow: 2;
+      display: flex;
+      justify-content: flex-end;
+    }
+    & i {
+      font-size: 6px;
+      margin-left: 8px;
+    }
+    & a {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+      align-items: center;
+      color: #333;
+    }
+  }
+  //Heading
+  &-heading {
+    padding: 0;
+    cursor: pointer;
+
+    & a, header {
+      color: $greyDarkest;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding:14px 0;
+      &[aria-expanded="true"] {
+        & .icon-plus-circle:before {
+          content: '\ea09';
+        }
+      }
+      & > i {
+        color: $helsanaRed;
+        display: flex;
+
+        font-size: 20px;
+        margin: 0 0 0 14px;
+      }
+    }
+    //Content from heading
+    @mixin flex {
+      display: flex;
+      align-items: flex-start;
+    }
+    &-content {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      & p {
+        font-family: $akkuratbold;
+        font-size: 1.6rem;
+      }
+      &--height-less {
+        @extend .panel-heading-content;
+        height: auto;
+        margin: 1rem 0;
+      }
+
+      & .first {
+        width: 45%;
+        @include flex;
+        & i {
+          font-size: 32px;
+          margin-right: 15px;
+        }
+        & p {
+          display: flex;
+          flex-direction: column;
+          line-height: 2.6rem;
+          & span {
+            font-size:1.4rem;
+          }
+        }
+      }
+      & .second {
+        flex-shrink: 0;
+        @include flex;
+      }
+      & .third {
+        justify-content: flex-end;
+        flex-grow: 2;
+        text-align: end;
+        @include flex;
+      }
+    }
+  }
+
+  //Panel Body
+  &-body {
+    margin-left: 47px;
+    margin-right: 36px;
+    &.single {
+      margin-left: 0;
+      & > * {
+        padding-bottom: 16px;
+      }
+    }
+    & h3 {
+      padding:0;
+      border:none;
+    }
+    & .value-list {
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: 12px;
+      margin-left: 12px;
+      & li {
+        width: 33%;
+        padding: 8px 12px;
+        border: none;
+      }
+    }
+    & .value-title {
+      margin-top:32px;
+      padding-bottom:12px;
+      align-items: flex-end;
+      border-bottom: 1px solid $dividerline;
+      &:first-of-type {
+        margin-top:18px;
+      }
+      & h3 {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        & span {
+          font-size: 1.4rem;
+        }
+      }
+      & p {
+        font-size: 20px;
+      }
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &-footer {
+    padding-top:16px;
+    padding-bottom:32px;
+    margin-left: 47px;
+    margin-right: 36px;
+    border-top: 1px solid $grey;
+    margin-top:32px;
+    & h2 {
+      margin:0;
+    }
+    & > div {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+
+
+

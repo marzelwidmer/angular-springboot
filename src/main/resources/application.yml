@@ -24,11 +24,12 @@ management:
 # Server
 server:
   address:  127.0.0.1
-  port: 8080
+  port: 8090
   max-http-header-size: 16380
   compression:
     enabled: true
     mime-types: application/json,application/xml,text/html,text/xml,text/plain
+  context-path: /myhelsana/
 
 # Logging
 logging:

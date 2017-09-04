@@ -1,0 +1,67 @@
+.card {
+    color:$greyDarkest;
+    border-top: 1px solid $dividerline;
+    &:last-child {
+        border-bottom: 1px solid $dividerline;
+    }
+    &-container {
+        display: flex;
+        padding: 20px 0 15px 0;
+    }
+
+    & a {
+        color: $greyDarkest;
+      &.card-link {
+          color: $helsanaRed;
+      }
+    }
+
+    &-inner-container {
+        width:85%;
+        padding: 0 24px;
+    }
+
+    &-header {
+        font-size:18px;
+    }
+
+    &-content {
+        &-row {
+            display: flex;
+            & > p:first-of-type {
+                flex-basis: 30%;
+            }
+            & > p{
+                flex-basis: 70%;
+            }
+        }
+        & > div {
+            display: flex;
+        }
+    }
+
+    &-icon {
+        display:flex;
+        &.left {
+              width:15%;
+            & i {
+                font-size:32px;
+            }
+        }
+        &.right {
+            width:20%;
+            & i.icon-arrow {
+                flex-basis:50px;
+                display: flex;
+                text-align: right;
+                &:before {
+                    text-align: right;
+                    transform: rotate(-90deg);
+                }
+                font-size: 6px;
+                align-items: center;
+            }
+        }
+
+    }
+}

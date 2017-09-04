@@ -1,0 +1,134 @@
+.dropdown {
+  margin-right: 24px;
+  position: relative;
+  $padding-left: 12px;
+
+  &.has-icon {
+    $padding-left: 32px;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    color: #666;
+    &:hover, &:active, &:focus {
+      color: $greyDarkest;
+    }
+  }
+
+  &__pre-icon {
+    @include min-width(sm) {
+      padding-right: 8px;
+    }
+    margin-left: 8px;
+  }
+
+  & i {
+    display: flex;
+    font-size: 32px;
+    line-height: 32px;
+  }
+
+  & .icon-arrow {
+    margin-left: 8px;
+    font-size: 10px;
+  }
+
+  &__backdrop {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 290;
+    display: none;
+  }
+
+  &__content {
+    position: absolute;
+    display: none;
+    margin: 0;
+    min-width: auto;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    background-color: #FFF;
+    list-style: none;
+    z-index: 310;
+    background-clip: padding-box;
+    text-align: center;
+    padding: 40px 12px 12px 12px;
+    top: -9px;
+    left: -22px;
+    right: -12px;
+
+    & ul {
+      margin: 0;
+      list-style: none;
+    }
+
+    & li > * {
+      display: block;
+      padding: 8px;
+      border-top: 1px solid #E5E5E5;
+    }
+    &.both {
+      & > * {
+        padding: 0;
+        text-align: left;
+      }
+    }
+
+    &.left-align {
+      top: -9px;
+      left: -9px;
+      right: auto;
+      padding: 48px 12px 12px $padding-left;
+    }
+
+    &.right-align {
+      top: -9px;
+      left: auto;
+      right: -9px;
+      padding: 48px 12px 12px $padding-left;
+    }
+    &.mobile-left-align {
+      @include max-width(sm) {
+        top: -9px;
+        left: -9px;
+        right: auto;
+        padding: 56px 12px 12px $padding-left;
+      }
+    }
+  }
+
+  //When Dropdown is Open
+  &.open {
+    z-index: 300;
+    & .dropdown__header {
+      color: $greyDarkest;
+      z-index: 320;
+    }
+    & .dropdown__content {
+      display: block;
+    }
+    & .icon-arrow {
+      transform: rotate(180deg);
+    }
+
+    & > .dropdown__backdrop {
+      display: block;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+

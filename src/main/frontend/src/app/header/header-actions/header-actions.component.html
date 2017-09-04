@@ -1,0 +1,119 @@
+<div class="servicenav">
+
+	<!-- Links User -->
+	<!--TODO *ngIf="'global.portalAccount.appType.ne.Public'"-->
+	<myh-dropdown [type]="'right-align'"
+								title="{{(whoAmIService.get()|async)?.firstName}} {{(whoAmIService.get()|async)?.name}}"
+								[iconClass]="'icon-avatar-male'">
+
+		<ul>
+			<!--       <bb:env include="DEV">
+			   <bb:url var="logoutUrl" pagename="logout"/>
+			 </bb:env>
+			 <bb:env exclude="DEV">
+			   <c:set var="logoutUrl" value="${contextRoot}?logout&language=${global.language}"/>
+			 </bb:env>-->
+			<ng-container *ngIf="'global.portalAccount.appTypeNePUBLIC'">
+				<li *ngIf="'global.portalAccount.appTypeEqPORTAL'"><a href="pagename=setting">
+					{{'setting.index.title'|translate}}
+				</a></li>
+				<%-- logout is only possible in LIGHT or PORTAL mode --%>
+				<li><a href="'${logoutUrl}'">
+					{{'general.logout'|translate}}
+				</a></li>
+			</ng-container>
+		</ul>
+	</myh-dropdown>
+
+	<!-- Contact Dropdown -->
+
+	<myh-dropdown [type]="'right-align'"
+								title="general.contact.menu.title">
+		<ul>
+			<div *ngIf="'${!global.portalAccount.staff}'">
+				<div *ngIf="'${global.portalAccount.partner.addressPraemie.countryISO3 eq CHE}'">
+					<li>
+						<div>
+							<div class="bold">
+								{{'general.contact.menu.portalhelp'|translate}}
+							</div>
+							<p>
+								<span class="icon-phone"></span>
+								<a href="tel:portalhelp.nr">
+									{{'general.contact.menu.portalhelp.nr'|translate}}
+								</a>
+								<span>{{'general.contact.menu.portalhelp.open'|translate}}</span>
+							</p>
+						</div>
+					</li>
+					<li>
+						<div>
+							<div class="bold">
+								{{'general.contact.menu.helpdesk'|translate}}
+							</div>
+							<span class="icon-phone"></span>
+							<a
+								href="'tel:${global.portalAccount.partner.kbtTelephone}'">global.portalAccount.partner.kbtTelephone</a>
+							<span
+								*ngIf="'${global.portalAccount.partner.kbtTeamName ne null}'">global.portalAccount.partner.kbtTeamName<br/>
+                  </span>
+							<span>{{'general.contact.menu.helpdesk.open'|translate}}</span><br/><br/>
+							<!--<img src="'url.base ${global.portalAccount.partner.kbt}'"/>-->
+						</div>
+					</li>
+				</div>
+				<li *ngIf="'${global.portalAccount.partner.addressPraemie.countryISO3 ne CHE}'">
+					<div>
+						<div class="bold">
+							{{'general.contact.menu.abroad'|translate}}
+						</div>
+						<p>
+							<span class="icon-phone"></span>
+							<a href="tel:abroad.nr">
+								{{'general.contact.menu.abroad.nr'|translate}}
+							</a>
+
+							<span *ngIf="'${global.portalAccount.partner.kbtTeamName ne null}'">
+                    global.portalAccount.partner.kbtTeamName<br/>
+                  </span>
+							<span>{{'general.contact.menu.abroad.open'|translate}}</span><br/><br/>
+							<!--<img src="'url.base ${global.portalAccount.partner.kbt}'"/>-->
+
+						</p>
+					</div>
+				</li>
+			</div>
+
+			<li *ngIf="'${global.portalAccount.staff}'">
+				<div>
+					<div class="bold">
+						{{'general.contact.menu.portalhelp'|translate}}
+					</div>
+					<p>
+						<span class="icon-phone"></span>
+						<a
+							href="'tel:${global.portalAccount.partner.kbtTelephone}'">global.portalAccount.partner.kbtTelephone</a>
+						{{'general.contact.menu.portalhelp.open'|translate}}
+						<br/><br/>
+						<!--<img src="'url.base ${global.portalAccount.partner.kbt}'"/>-->
+					</p>
+				</div>
+			</li>
+
+			<li><a href="pagename=help">
+				{{'general.contact.menu.helplink'|translate}}
+			</a></li>
+		</ul>
+	</myh-dropdown>
+	<!-- Language Dropdown -->
+	<myh-dropdown e2e-id="language-dropdown" [type]="'both'"
+								[title]="(translate.$currentLanguage|async)?.value | uppercase">
+		<ul>
+			<li *ngFor="let language of translate.languages" (click)="changeLanguage(language)">
+				<a [attr.e2e-class]="'language-'+language.value" *ngIf="(translate.$currentLanguage|async) !== language"
+					 href="javascript:void(0)">{{language.value|uppercase}}</a>
+			</li>
+		</ul>
+	</myh-dropdown>
+	<!-- Language Dropdown -->
+</div>

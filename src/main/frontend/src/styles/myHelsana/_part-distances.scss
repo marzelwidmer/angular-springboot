@@ -1,0 +1,14 @@
+.part-distances {
+  min-width: 100%;
+  @include min-width(sm) {
+    margin-left: -8px;
+    margin-right: -8px;
+
+    & .part {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+}
+
+

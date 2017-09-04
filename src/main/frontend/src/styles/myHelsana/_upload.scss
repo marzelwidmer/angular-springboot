@@ -1,0 +1,45 @@
+.upload {
+
+  &__btn {
+    position: relative;
+    margin: 4px;
+    & > input {
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      margin: 0;
+      padding: 0;
+      border: none;
+      opacity: 0;
+    }
+  }
+
+  &__file {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: block;
+    margin: 0 10px;
+    border-bottom: 1px solid $dividerline;
+    line-height: 33px;
+    color: $helsanaRed;
+    display: flex;
+    justify-content: space-between;
+
+    & > span {
+      width: 90%;
+      display: flex;
+      & > span:first-child {
+        max-width: 36vw;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      & > span:nth-child(2){
+        margin: 0 8px;
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+.warn {
+  padding-top: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid $orange;
+  margin-bottom: 32px;
+
+
+  & i {
+    margin-right: 16px;
+    color: $orange;
+  }
+}
+fieldset.warn {
+  padding-bottom: 12px;
+  border-bottom: 1px solid $orange;
+  margin-bottom: 0;
+}
+.success {
+  padding-top: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid $checkgreen;
+  margin-bottom: 40px;
+  & i {
+    margin-right: 16px;
+    color: $checkgreen;
+  }
+}

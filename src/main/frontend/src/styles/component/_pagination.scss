@@ -1,0 +1,26 @@
+.pagination {
+    display: flex;
+    align-items: center;
+    & ul {
+        padding: 0 8px;
+        margin:0;
+        list-style: none;
+        display: flex;
+        & li {
+            height:42px;
+            width:40px;
+            text-align: center;
+            border-right: 1px solid $greyLight;
+            line-height: 42px;
+        }
+        & li:last-child {
+            border-right: none;
+        }
+        & li.active a {
+            color: $helsanaRedHover;
+        }
+    }
+    & .btn {
+        position: relative;
+    }
+}

@@ -1,0 +1,17 @@
+<div class="list-block">
+  <h3>{{title|translate}}</h3>
+  <ul *ngIf="list?.length" class="list">
+    <li *ngFor="let item of list" [ngClass]="{'final-link': item.isFinalLink}">
+      <a class="link" [routerLink]="item.href">
+        <i *ngIf="item.iconClass" class="{{item.iconClass}} pre-icon"></i>
+        <div class="content">
+          <div>
+            <span>{{(item.title|translate) || item.title}}</span>
+            <span *ngIf="item.isFinalLink">&gt;</span>
+          </div>
+          <span *ngIf="item.details" class="info-text">{{item.details}}</span>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>

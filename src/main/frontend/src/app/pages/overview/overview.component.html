@@ -1,0 +1,25 @@
+<div class="flex flex--align-start wrap part-distances">
+	<article class="col-lg-3 col-sm-4 col-xs-12 order-xs-2 order-lg-0 part">
+		<myh-person-slider>
+
+		</myh-person-slider>
+	</article>
+
+	<section class="col-lg-6 col-sm-8 col-xs-12 part">
+		<myh-list-block e2e-id="message-block" [title]="'overview.index.neuste_nachrichten'" [list]="messages">
+
+		</myh-list-block>
+		<myh-list-block e2e-id="document-block" [title]="'overview.index.neuste_dokumente'" [list]="documents">
+
+		</myh-list-block>
+		<myh-list-block e2e-id="order-block" [title]="'overview.index.letzte_auftraege'" [list]="orders">
+
+		</myh-list-block>
+	</section>
+
+	<section class="col-lg-3 col-sm-4 col-xs-12 part">
+		<myh-list-block [title]="'overview.index.wichtigste_links'" [list]="primeLinks">
+
+		</myh-list-block>
+	</section>
+</div>

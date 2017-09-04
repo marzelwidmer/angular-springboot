@@ -1,0 +1,61 @@
+.navbar {
+    height: 56px;
+    margin: 40px 0 0 0;
+    background-color: $helsanaRed;
+    border-radius: 0;
+    & > .container {
+        height:100%;
+    }
+    & .nav {
+        font-size: 1.6rem;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        list-style: none;
+        & li {
+            & > a {
+                display: flex;
+                align-items: center;
+                padding:0 40px 0 0;
+                color: $white;
+                background-color: transparent;
+                text-decoration: none;
+                &:hover,
+                &:focus,
+                &:active {
+                    background-color: transparent;
+                    font-family: $akkuratbold;
+                }
+            }
+            &.active > a {
+                font-family: $akkuratbold;
+
+            }
+        }
+        & .navbar-nav {
+            & li > a {
+                padding:0;
+            }
+            & li > a:hover {
+                background: transparent;
+            }
+        }
+    }
+    //Badge Navbar
+    & .badge {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width:20px;
+        height:20px;
+        margin-left:8px;
+        font-size: 1.4rem;
+        font-family: $akkuratbold;
+        color: $helsanaRed;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        background-color:$white;
+        border-radius: 10px;
+    }
+}

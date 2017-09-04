@@ -1,0 +1,113 @@
+//Modal
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: -100vw;
+  width: 100vw;
+  z-index: 1050;
+  overflow: hidden;
+  outline: 0;
+  //When Modal is Opened
+  &-open {
+    overflow: hidden;
+    height: 100%;
+    position: fixed;
+    & .modal {
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+  }
+  & a, span {
+    color: $white;
+  }
+  &-dialog {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  //Animation Modal
+  &.fade {
+    opacity: 1;
+    transition: left .3s ease-out;
+    &:not(.in) .modal-dialog {
+      left: -100vw;
+    }
+  }
+  &.in {
+    left: 0;
+  }
+  //Modal Content
+  &-content {
+    height: auto;
+    min-height: 100%;
+    border-radius: 0;
+    border: 0;
+    background: $primaryColor;
+  }
+  &-body {
+    padding: 0;
+  }
+  & .lang-selector {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    font-size: 1.4rem;
+    & li {
+      margin-right: 16px;
+    }
+  }
+  //Modal Header
+  & .modal-header {
+    padding: 0px 0px 0px 24px;
+    display: flex;
+    border-bottom: 1px solid $helsanaLightRed;
+    & .close {
+      margin-left: auto;
+      background: $white;
+      opacity: 1;
+      width: 48px;
+      height: 48px;
+      > img, > i {
+        color: $primaryColor;
+        font-weight: 600;
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+  //Mobile Navigation
+  & .mobile-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    & > li {
+      padding: 16px 24px 16px 24px;
+      border-bottom: 1px solid $helsanaLightRed;
+      font-size: 2rem;
+      line-height: 2.8rem;
+      &.active {
+        font-family: $akkuratbold;
+      }
+      & a {
+        &:hover, &:focus, &:active {
+          font-family: $akkuratbold;
+        }
+      }
+    }
+    & > li:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &-scrollbar-measure {
+    position: absolute;
+    top: -9999px;
+    width: 50px;
+    height: 50px;
+    overflow: scroll;
+  }
+}

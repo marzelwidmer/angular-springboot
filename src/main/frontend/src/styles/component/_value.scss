@@ -1,0 +1,136 @@
+.value {
+
+    &-profile {
+        & h2 {
+            margin:0;
+        }
+        & .divider {
+            margin:12px 0;
+            height: 1.5px;
+            background: $greyDarkest;
+            width:32px;
+        }
+    }
+    &-header {
+        display: flex;
+        width:100%;
+        margin-bottom: 16px;
+        align-items: center;
+        & > i {
+            font-size: 32px;
+            margin-right: 16px;
+        }
+    }
+
+    &-title h2 {
+        margin:0;
+    }
+
+    &-content {
+        padding-left:48px;
+        @include max-width(xs) {
+            padding: 0;
+        }
+    }
+    //Pair
+    &-pair {
+        display:flex;
+        margin-top:8px;
+        & > * {
+            flex-basis: 50%;
+        }
+        & > p {
+            flex-basis: 50%;
+        }
+        & > i {
+            font-size:156px;
+            @include max-width(xs) {
+                font-size:56px;
+            }
+        }
+        @include max-width(xs) {
+            flex-direction: column;
+        }
+        &.profile {
+            @include max-width(xs) {
+                & i {
+                    flex-basis: 30%;
+                }
+                & div {
+                    flex-basis:70%;
+                }
+                flex-direction: row;
+            }
+        }
+    }
+    //triple
+    &-triple {
+        display:flex;
+        margin-bottom:8px;
+        & > * {
+            flex-basis: 33%;
+        }
+        & > p, & > div {
+            flex-basis: 33%;
+        }
+        @include max-width(xs) {
+            flex-direction: column;
+        }
+        & > i {
+            font-size:156px;
+            @include max-width(xs) {
+                font-size:56px;
+            }
+        }
+        @include max-width(xs) {
+            flex-direction: column;
+        }
+        &.profile {
+            align-items: center;
+            & h3 {
+                padding:0;
+                border:none;
+            }
+            & div {
+                flex-basis: 66%;
+            }
+            @include max-width(xs) {
+                & i {
+                    flex-basis: 30%;
+                }
+                & div {
+                    flex-basis:70%;
+                }
+                flex-direction: row;
+            }
+        }
+    }
+
+    &-list {
+        list-style: none;
+        &.organisation li {
+            padding: 16px 0 24px;
+            border-top: 1px solid $dividerline;
+        }
+        & > li {
+            padding: 16px 0 40px 0;
+            & .value-triple:last-child {
+                margin-bottom: 0;
+            }
+            & > i {
+                font-size: 32px;
+            }
+            &.access {
+                & .value-triple {
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                    margin-bottom: 32px;
+                    @include max-width(xs) {
+                        margin-bottom: 8px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,38 +1,79 @@
-/* tslint:disable:no-unused-variable */
+import { async, fakeAsync, inject, TestBed } from '@angular/core/testing';
 
-import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
-import {Todo} from "./components/todo/todo-app.component";
+import { HeaderModule } from './header/header.module';
+import { FooterComponent } from './footer/footer.component';
+import { Http, HttpModule } from '@angular/http';
+import { HttpLoaderFactory } from './app.module';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslationService } from './common/services/translation.service';
+import { RouterTestingModule } from '@angular/router/testing';
+import { Observable } from 'rxjs/Observable';
 
 describe('AppComponent', () => {
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        FormsModule
-      ],
-      declarations: [
-        AppComponent
-      ],
-    });
-  });
 
-  it('should create the app', async(() => {
-    let fixture = TestBed.createComponent(AppComponent);
-    let app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  }));
+	const windowMock = {
+		getComputedStyle: () => {
+			return {
+				marginLeft: 10,
+				marginRight: 5
+			};
+		}
+	};
 
-  it(`should have a newTodo todo`, async(() => {
-    let fixture = TestBed.createComponent(AppComponent);
-    let app = fixture.debugElement.componentInstance;
-    expect(app.newTodo instanceof Todo).toBeTruthy();
-  }));
+	const translationServiceMock = {
+		use: () => {
+			Observable.of({});
+		},
+		setDefaultLang: () => {
+		},
+		getBrowserLang: () => {
+			return 'it';
+		}
+	};
 
-  it('should display "Todos" in h1 tag', async(() => {
-    let fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    let compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Todos');
-  }));
+	beforeEach(async(() => {
+		TestBed.configureTestingModule({
+			imports: [
+				HeaderModule,
+				RouterTestingModule,
+				HttpModule,
+				TranslateModule.forRoot({
+					loader: {
+						provide: TranslateLoader,
+						useFactory: HttpLoaderFactory,
+						deps: [Http]
+					}
+				}),
+			],
+			declarations: [
+				AppComponent,
+				FooterComponent
+			],
+			providers: [
+				{
+					provide: TranslationService, useFactory: (() => {
+					return translationServiceMock;
+				})
+				}
+			],
+			// TODO https://github.com/angular/angular/issues/15640
+			// providers: [TranslationService, { provide: 'Window', useValue: windowMock }, { provide: 'Navigator', useValue: navigatorMock }],
+		}).compileComponents();
+	}));
+
+	it('should create the app', async(() => {
+		const fixture = TestBed.createComponent(AppComponent);
+		const app = fixture.debugElement.componentInstance;
+		expect(app).toBeTruthy();
+	}));
+
+	it('should test constructor', inject([TranslationService], fakeAsync((mockTranslationService) => {
+		spyOn(translationServiceMock, 'setDefaultLang');
+		spyOn(translationServiceMock, 'use');
+		const fixture = TestBed.createComponent(AppComponent);
+		const translationService = fixture.debugElement.injector.get(TranslationService);
+		expect(translationService.setDefaultLang).toHaveBeenCalledWith('de');
+		expect(translationService.use).toHaveBeenCalledWith('it');
+	})));
 });

@@ -1,0 +1,24 @@
+@import "../../../../../styles/constants";
+
+.data-block {
+  margin-bottom: 20px;
+	padding: 16px;
+	background-color: $ecruLight;
+
+  dl {
+
+		dt {
+			font-family: $akkuratbold;
+
+			& .pre-icon {
+				min-width: $iconDefaultSize;
+				margin-left: 8px;
+				color: $ecru;
+			}
+		}
+
+		dd {
+			margin-bottom: 8px;
+		}
+	}
+}

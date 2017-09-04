@@ -1,0 +1,147 @@
+
+.back-to-top {
+  a {
+    display: flex;
+    align-items: center;
+    & .icon-arrow {
+      font-size: 10px;
+      margin-right: 8px;
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.footer {
+  font-size: 1.4rem;
+  line-height: 22px;
+  border-top: 1px solid $footerline;
+  color: $textColor;
+  overflow-x: hidden;
+
+  & .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  & .wrapped {
+    flex-direction: column;
+
+    .footer__divider {
+      display: none;
+      /*&:after {
+        content: ' ';
+        border-left: none;
+        border-bottom: 1px solid #363636;
+        margin: 0;
+        height: 1px;
+        width: 50px;
+        display: block;
+      }*/
+    }
+
+    .footer__text {
+      margin-top: 16px;
+    }
+
+    .footer__social {
+      flex-grow: 1;
+    }
+
+    .footer__divider--vertical {
+      width: 200vw;
+      margin-left: calc(-100vw);
+      position: absolute;
+      bottom: 0;
+      border-bottom: 1px solid $footerline;
+    }
+  }
+
+  & .wrapped-nav {
+    align-items: flex-start;
+    border-bottom: 1px solid $footerline;
+    margin-bottom: 16px;
+
+    .footer__nav {
+      flex-direction: column;
+      align-items: flex-start;
+      & li {
+        margin-bottom: 8px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  &__divider {
+    margin-right: 24px;
+    margin-left: 24px;
+    border-left: 1px solid $footerline;
+    height: 64px;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  &__social {
+    display: flex;
+    flex-grow: 10;
+    padding-bottom: 16px;
+    padding-top: 16px;
+    position: relative;
+    & a {
+      text-decoration: none;
+      color: $greyDark;
+      &:hover {
+        color: $textColor;
+      }
+    }
+
+    & ul {
+      display: flex;
+    }
+
+    & li {
+      margin-right: 16px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    & i {
+      display: block;
+      padding: 4px;
+      width: 32px;
+      height: 32px;
+      font-size: 20px;
+      color: $greyMedium;
+
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 16px;
+    padding-top: 16px;
+    & li {
+      flex-shrink: 0;
+      &:last-child {
+        margin-right: 0;
+      }
+      margin-right: 24px;
+      & a {
+        text-decoration: none;
+        color: $greyDark;
+        &:hover {
+          color: $textColor;
+        }
+      }
+    }
+  }
+}

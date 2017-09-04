@@ -1,0 +1,153 @@
+ng-component {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.selector {
+  display: none;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  :not(.dropdown) > & > i:first-of-type {
+    margin-right: 8px;
+  }
+
+  &.action-bar {
+    margin: 16px 0 0 0;
+    justify-content: space-between
+  }
+
+  &-small {
+    flex-basis: 120px;
+  }
+  &.flex--align-base {
+    align-items: baseline;
+  }
+
+  &.flex--align-start {
+    align-items: flex-start;
+  }
+
+  &.flex--column {
+    flex-direction: column;
+  }
+
+  &.space {
+    justify-content: space-between;
+  }
+  &.wrap {
+    flex-wrap: wrap;
+  }
+}
+
+.min-width-100 {
+  min-width: 100%;
+}
+
+[class^="icon-arrow"],
+.icon-info,
+.icon-mail,
+.icon-menu,
+.icon-close {
+  cursor: pointer;
+}
+
+.icon {
+
+  &-helsana-color {
+    color: $helsanaRed;
+  }
+
+  &-pdf {
+    color: $helsanaRed;
+  }
+  &-blank:before {
+    content: '';
+    width: 32px;
+  }
+  &-leading {
+    margin-top: 15px;
+    margin-right: 15px;
+    font-size: 32px;
+  }
+}
+
+.pull {
+  &-right {
+    float: right;
+  }
+}
+
+.right {
+  text-align: right
+}
+
+.min-width-20 {
+  min-width: 20px;
+}
+
+.max-width-20 {
+  max-width: 20px;
+}
+
+.top-40 {
+  top: 40px;
+}
+
+#loader-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(white, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  & > * {
+    margin: 8px;
+  }
+}
+
+#loader {
+  animation-name: spin;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  height: 48px;
+  width: 48px;
+  font-size: 48px;
+  @extend .icon;
+  @extend .icon-spinner;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.blue {
+  color: $blue;
+}
+
+.green {
+  color: $green;
+}
+
+.orange {
+  color: $orange;
+}
+
+.beige {
+  color: $ecru;
+}

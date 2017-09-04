@@ -1,0 +1,17 @@
+.image {
+  height:472px;
+  background-size: cover;
+  background-position: 50%;
+  @include max-width(md) {
+    height:400px;
+  }
+  @include max-width(sm) {
+    height:240px;
+  }
+}
+
+.img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}

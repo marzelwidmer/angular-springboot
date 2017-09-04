@@ -1,0 +1,14 @@
+.border {
+  //Top Border
+  &-top {
+    &-grey {
+      border-top: 1px solid $dividerline;
+    }
+  }
+  //Bottom Border
+  &-bottom {
+    &-grey {
+      border-bottom: 1px solid $dividerline;
+    }
+  }
+}

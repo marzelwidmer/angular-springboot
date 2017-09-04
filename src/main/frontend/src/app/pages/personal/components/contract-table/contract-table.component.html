@@ -1,0 +1,29 @@
+<div class="tuple-list" *ngIf="contract">
+	<header>
+		<div>
+			<h3>{{'personal.contract.title'|translate}}</h3>
+			<span *ngIf="contract.kvName">{{contract.kvName}}</span>
+			<span>{{'personal.data.versichertennummer'|translate}}: {{contract.contractNr}}</span>
+		</div>
+	</header>
+	<ng-container *ngIf="contract.coverages?.length">
+		<section *ngFor="let coverage of contract.coverages">
+			<div>
+				<span class="green">{{coverage.produktId}}</span>
+				<span *ngIf="coverage.franchise">
+						{{'personal.coverage.franchise'|translate}}: {{coverage.franchise}}
+				</span>
+				<span *ngIf="coverage.unfall">
+					{{coverage.accident ? ('personal.coverage.mitUnfall'|translate) : ('personal.coverage.ohneUnfall'|translate) }}
+				</span>
+			</div>
+			<div>
+				<span class="green">{{coverage.nettopraemie}}</span>
+			</div>
+		</section>
+		<footer>
+			<div>{{'personal.contract.premium.totalMonth'|translate}} (CHF)</div>
+			<div>250.00</div>
+		</footer>
+	</ng-container>
+</div>
